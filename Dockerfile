@@ -4,8 +4,8 @@ MAINTAINER Chance Hudson
 RUN apk add --no-cache nginx && \
   mkdir -p /run/nginx
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY ./entrypoint.sh /entrypoint.sh
 
 EXPOSE 80 443
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/entrypoint.sh"]
